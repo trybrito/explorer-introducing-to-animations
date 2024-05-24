@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -mos-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: mediumpurple;
+}
+
+.square {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: white;
+  opacity: 0.6;
+
+  /* animation-name: moveToEnd;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate; -> direção de instrução alternada para a exibição da animação ("ora de 0 a 100, outrora de 100 a 0")
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+  animation-timing-function: linear; -> steps([Qtd de passos até a finalização da animação]) cubic-bezier() ease-in(out/in-out)
+  
+  cubic-bezier(x1, y1, x2, y2) -> os valores para o eixo x não podem ser negativos, mas para o eixo y, sim */
+
+  animation: moveToEnd 2s forwards alternate infinite linear,
+    blink 200ms infinite; /* shorthand */
+}
+
+.square:hover {
+  animation-play-state: paused;
+}
+
+@keyframes moveToEnd {
+  /* 0% { -> ou from
+
+  } */
+
+  /*
+  100% { -> ou to
+    transform: translateX(calc(100vw - 100% - 2rem));
+  } */
+
+  /* 50% {
+    transform: translateX(calc(100vw - 100% - 2rem)); 
+    
+    Faz com que o quadrado saia do seu estado inicial, em 0%, até o fim da tela na metade do tempo da animação e como 
+    não há instrução de fim (100%) a animação simplesmente retorna ao seu estado inicial;
+  } */
+
+  100% {
+    transform: translateX(calc(100vw - 100% - 2rem));
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
